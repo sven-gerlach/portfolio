@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Sven Gerlach",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sven-gerlach/portfolio.git"
+  },
+  "author": "Sven Gerlach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sven-gerlach/portfolio/issues"
+  },
+  "homepage": "https://github.com/sven-gerlach/portfolio#readme"
+}
