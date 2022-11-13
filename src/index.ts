@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import './index.css';
+import * as _ from 'lodash';
+import './index.scss';
 import svenImage from './assets/sven-business-casual.JPG';
 import {logMe} from "./log";
 

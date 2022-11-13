@@ -1,9 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, '../build'),
@@ -11,10 +10,28 @@ module.exports = {
   },
   module: {
     rules: [
+      /* type script files */
+      {
+        test: /\.(js|jsx|tsx|ts)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      // {
+      //   test: /\.tsx?$/,
+      //   use: 'ts-loader',
+      //   exclude: /node_modules/,
+      // },
       /* package style sheets */
       {
-        test: /.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       },
       /* package images */
       {
@@ -27,6 +44,9 @@ module.exports = {
         type: 'asset/resource',
       },
     ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
   },
   plugins: [
     new HtmlWebpackPlugin({
