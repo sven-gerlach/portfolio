@@ -6,7 +6,11 @@
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
     "serve": "webpack serve --config config/webpack.dev.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier:check": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern src",
+    "prettier:write": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern src",
+    "eslint:check": "npx eslint --no-error-on-unmatched-pattern src",
+    "eslint:write": "npx eslint --no-error-on-unmatched-pattern --fix src"
   },
   "repository": {
     "type": "git",
@@ -48,8 +52,5 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
   }
 }
