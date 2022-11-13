@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './index.css';
 import svenImage from './assets/sven-business-casual.JPG';
+import {logMe} from "./log";
 
 function component() {
   const element = document.createElement('div');
@@ -12,7 +13,12 @@ function component() {
   myImage.src = svenImage;
   element.appendChild(myImage);
 
-  return element
+  const button = document.createElement('button');
+  button.innerHTML = 'Click Me';
+  button.onclick = logMe
+  element.appendChild(button);
+
+  return element;
 }
 
 document.body.appendChild(component());
