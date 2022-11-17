@@ -7,8 +7,8 @@
     "build": "webpack --config config/webpack.prod.js",
     "serve": "webpack serve --config config/webpack.dev.js",
     "prepare": "husky install",
-    "prettier:check": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern src",
-    "prettier:write": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern src",
+    "prettier:check": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern src aws-cdk",
+    "prettier:write": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern src aws-cdk",
     "eslint:check": "npx eslint --no-error-on-unmatched-pattern src",
     "eslint:write": "npx eslint --no-error-on-unmatched-pattern --fix src"
   },
