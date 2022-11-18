@@ -49,3 +49,7 @@ jobs:
         run: |
           cd aws-cdk
           npm run cdk synth
+      - name: Deploy to AWS
+        run: |
+          cd aws-cdk
+          npm run cdk deploy
