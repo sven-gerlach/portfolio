@@ -57,4 +57,4 @@ jobs:
       - name: Deploy to AWS
         run: |
           cd aws-cdk
-          npm run cdk deploy -v -v -v
+          npm run cdk deploy
