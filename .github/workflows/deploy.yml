@@ -46,4 +46,4 @@ jobs:
       - name: Install aws-cdk dependencies
         run: npm ci
       - name: Synthesise
-        run: cdk synth
+        run: npm run cdk synth
