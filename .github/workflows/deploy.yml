@@ -35,4 +35,5 @@ jobs:
           node-version: '16.17.0'
       - name: install dependencies
         run: npm ci
-      - name: echo 'Success'
+      - name: result
+        run: echo 'Success'
