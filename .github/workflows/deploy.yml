@@ -11,29 +11,33 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
+      - name: Checkout GitHub repo
         uses: actions/checkout@v3
-      - name: instantiate node environment
+      - name: Instantiate node environment
         uses: actions/setup-node@v3
         with:
           node-version: '16.17.0'
-      - name: install dependencies
+      - name: Install dependencies
         run: npm ci
-      - name: run prettier
+      - name: Run prettier
         run: npm run prettier:check
-      - name: run eslint
+      - name: Run eslint
         run: npm run eslint:check
   deploy:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
+      - name: Checkout GitHub repo
         uses: actions/checkout@v3
-      - name: instantiate node environment
+      - name: Instantiate node environment
         uses: actions/setup-node@v3
         with:
           node-version: '16.17.0'
-      - name: install dependencies
+      - name: Install dependencies
         run: npm ci
-      - name: result
-        run: echo 'Success'
+      - name: Generate static build files
+        run: npm run build
+      - name: Install aws-cdk
+        run: npm i -g aws-cdk
+      - name: Check aws-cdk version
+        run: cdk --version
