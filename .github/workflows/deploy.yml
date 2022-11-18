@@ -26,6 +26,10 @@ jobs:
   deploy:
     needs: [test]
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     steps:
       - name: Checkout GitHub repo
         uses: actions/checkout@v3
@@ -33,17 +37,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.17.0'
-      - name: Install dependencies
+      - name: Install portfolio dependencies
         run: npm ci
       - name: Generate static build files
         run: npm run build
-      - name: Install aws-cdk
-        run: npm i -g aws-cdk
-      - name: Deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: |
-          cd aws-cdk
-          cdk synth
+      - name: Switch directory
+        run: cd aws-cdk
+      - name: Install aws-cdk dependencies
+        run: npm ci
+      - name: Synthesise
+        run: cdk synth
