@@ -41,9 +41,11 @@ jobs:
         run: npm ci
       - name: Generate static build files
         run: npm run build
-      - name: Switch directory
-        run: cd aws-cdk
       - name: Install aws-cdk dependencies
-        run: npm ci
+        run: |
+          cd aws-cdk
+          npm ci
       - name: Synthesise
-        run: npm run cdk synth
+        run: |
+          cd aws-cdk
+          npm run cdk synth
