@@ -46,8 +46,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: arn:aws:iam::101905591765:role/GitHub_Portfolio
+          aws-region: use-east-1
       - name: Synthesise aws stack
         working-directory: ./aws-cdk
         run: npm run cdk synth
