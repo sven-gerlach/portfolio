@@ -24,6 +24,9 @@ jobs:
       - name: Run eslint
         run: npm run eslint:check
   deploy:
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read  # This is required for actions/checkout
     needs: [test]
     runs-on: ubuntu-latest
     steps:
@@ -48,6 +51,6 @@ jobs:
       - name: Synthesise aws stack
         working-directory: ./aws-cdk
         run: npm run cdk synth
-      - name: Deploy to AWS
-        working-directory: ./aws-cdk
-        run: npm run cdk deploy
+#      - name: Deploy to AWS
+#        working-directory: ./aws-cdk
+#        run: npm run cdk deploy
