@@ -1,5 +1,5 @@
-name: Deploy to AWS
-on: [push, pull_request]
+name: Run test suite
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
