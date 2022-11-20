@@ -2,7 +2,7 @@
 
 ## Infrastructure as Code
 The stack module [aws-cdk-stack.ts](./lib/aws-cdk-stack.ts) effectuates four specific tasks to deploy the portfolio 
-websites static assets to the AWS CLoudfront CDN.
+websites static assets to the AWS Cloudfront CDN.
 1. Define and create the S3 bucket that contains all static assets
 2. Move all static assets from local build directory into the created S3 bucket
 3. Create an origin access identity and associate it with the S3 bucket. This ensures that only Cloudfront can use 
