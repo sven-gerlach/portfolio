@@ -1,9 +1,9 @@
 {
-  "src/**/*": [
+  "src/**/": [
     "npm run prettier:check",
     "npm run eslint:check"
   ],
-  "aws-cdk/**/*": [
+  "aws-cdk/**/": [
     "npm run prettier:check"
   ]
 }
