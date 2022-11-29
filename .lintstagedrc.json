@@ -1,9 +1,9 @@
 {
-  "src/**/*.{js,jsx,ts,tsx}": [
-    "npm run prettier:check",
-    "npm run eslint:check"
+  "src/**/*.*": [
+    "prettier --check --ignore-unknown --no-error-on-unmatched-pattern src",
+    "npx eslint --no-error-on-unmatched-pattern src"
   ],
-  "aws-cdk/**/*.{js,jsx,ts,tsx}": [
-    "npm run prettier:check"
+  "aws-cdk/**/*.*": [
+    "prettier --check --ignore-unknown --no-error-on-unmatched-pattern aws-cdk"
   ]
 }
